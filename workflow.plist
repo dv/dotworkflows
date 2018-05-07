@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.crowdway.workflow</string>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/david/poetry/workflow</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/david/.rbenv/shims/ruby</string>
+        <string>review_requests_to_things.rb</string>
+    </array>
+
+    <!--
+        <key>StandardOutPath</key>
+        <string>agent.stdout</string>
+        <key>StandardErrorPath</key>
+        <string>agent.stderr</string>
+    -->
+
+    <key>StartInterval</key>
+    <integer>120</integer>
+</dict>
+</plist>
+
