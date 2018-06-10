@@ -4,6 +4,7 @@ require "graphql/client/http"
 module GithubGraphQL
   GITHUB_TOKEN = ENV["GITHUB_TOKEN"]
   ORGANIZATION = ENV["GITHUB_ORGANIZATION"]
+  SCHEMA_PATH = "lib/github/schema.json"
 
   # Configure GraphQL endpoint using the basic HTTP network adapter.
   HTTP = GraphQL::Client::HTTP.new("https://api.github.com/graphql") do
@@ -12,12 +13,12 @@ module GithubGraphQL
       end
     end
 
-  if !File.file?("schema.json")
+  if !File.file?(SCHEMA_PATH)
     puts "schema.json doesn't exist yet, download and create it"
-    GraphQL::Client.dump_schema(HTTP, "schema.json")
+    GraphQL::Client.dump_schema(HTTP, SCHEMA_PATH)
   end
 
-  Schema = GraphQL::Client.load_schema("schema.json")
+  Schema = GraphQL::Client.load_schema(SCHEMA_PATH)
   Client = GraphQL::Client.new(schema: Schema, execute: HTTP)
 
   OrganizationPullRequestsWithReviewRequestsQuery = Client.parse <<-"GRAPHQL"

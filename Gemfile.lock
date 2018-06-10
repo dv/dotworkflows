@@ -33,6 +33,3 @@ DEPENDENCIES
   graphql-client
   pry
   rb-scpt
-
-BUNDLED WITH
-   1.16.1

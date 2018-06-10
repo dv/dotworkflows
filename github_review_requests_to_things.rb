@@ -8,7 +8,7 @@ require 'rubygems'
 require 'bundler/setup'
 Bundler.require(:default)
 
-require "./github_client"
+require "./lib/github/github_client"
 
 THINGS_PROJECT = ENV.fetch("THINGS_PROJECT", "Pull Requests")
 
