@@ -78,7 +78,6 @@ todo.osa_object.properties_.get
 
 Call `methods` to see a list of possible methods and fields.
 
-
 ### status
 
 - `open`: not completed, not cancelled
@@ -86,6 +85,8 @@ Call `methods` to see a list of possible methods and fields.
 - `canceled`: cancelled (completion_date and cancellation_date will be filled in)
 
 By changing `status = completed` it sets `activation_date` to nil and sets `completion_date`. You cannot set `status = open` but rather you have to set `completion_date` back to `nil`.
+
+Note: when a todo is logged it is no longer in that project or area, but is in the Logbook. It will not show up in the Project as completed todos. Only non-logged, completed todos show up when filtering for completion.
 
 ### show
 

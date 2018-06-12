@@ -19,5 +19,6 @@ class Things
 end
 
 require_relative "things/osa_object"
+require_relative "things/area"
 require_relative "things/project"
 require_relative "things/todo"

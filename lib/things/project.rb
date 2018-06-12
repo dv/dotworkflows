@@ -4,8 +4,11 @@ class Things
       Things::Project.new(Things.new.osa_object.projects[name])
     end
 
-    def todos
-      osa_object.to_dos.get.map do |osa_todo|
+    def todos(filter = nil)
+      osa_todos = osa_object.to_dos
+      osa_todos = osa_todos[filter] if filter
+
+      osa_todos.get.map do |osa_todo|
         Things::Todo.new osa_todo
       end
     end

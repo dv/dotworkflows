@@ -6,6 +6,11 @@ class Things
       @osa_object = osa_object
     end
 
+    # Open in GUI
+    def show
+      osa_object.show
+    end
+
     def method_missing(method_name, *arguments, &block)
       valid_property, getter_or_setter, property =
         parse_method_name(method_name)
