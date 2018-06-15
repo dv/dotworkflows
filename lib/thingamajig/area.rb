@@ -1,7 +1,7 @@
-class Things
+class Thingamajig
   class Area < OsaObject
     def self.find_by(name:)
-      Things::Area.new(Things.new.osa_object.areas[name])
+      Thingamajig::Area.new(Thingamajig.new.osa_object.areas[name])
     end
 
     # an Area's To Do list actually contains Projects & Todos, that's
@@ -11,7 +11,7 @@ class Things
       query = query.and(filter) if filter
 
       osa_object.to_dos[query].get.map do |osa_todo|
-        Things::Todo.new osa_todo
+        Thingamajig::Todo.new osa_todo
       end
     end
 
@@ -20,12 +20,12 @@ class Things
       query = query.and(filter) if filter
 
       osa_object.to_dos[query].get.map do |osa_project|
-        Things::Project.new osa_project
+        Thingamajig::Project.new osa_project
       end
     end
 
     def inspect
-      "#<Things::Area '#{name}'>"
+      "#<Thingamajig::Area '#{name}'>"
     end
 
     private

@@ -1,4 +1,4 @@
-class Things
+class Thingamajig
   class Todo < OsaObject
     def complete!
       self.status = :completed
@@ -29,7 +29,7 @@ class Things
     end
 
     def inspect
-      "#<Things::Todo '#{name}'>"
+      "#<Thingamajig::Todo '#{name}'>"
     end
 
     class << self

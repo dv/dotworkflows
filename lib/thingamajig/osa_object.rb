@@ -1,4 +1,4 @@
-class Things
+class Thingamajig
   class OsaObject
     attr :osa_object
 
