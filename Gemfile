@@ -8,7 +8,7 @@ gem "pry"
 # gem "octokit"
 gem "dotenv", require: "dotenv/load"
 gem "graphql-client"
-gem "rb-scpt"
 gem "activesupport"
 
 gem "gitlab"
+gem "thingamajig"

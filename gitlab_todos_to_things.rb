@@ -5,8 +5,6 @@ Bundler.require(:default)
 require 'active_support'
 require 'active_support/all'
 
-require "./lib/thingamajig"
-
 Gitlab.configure do |config|
   config.endpoint       = ENV["GITLAB_ENDPOINT"]
   config.private_token  = ENV["GITLAB_TOKEN"]

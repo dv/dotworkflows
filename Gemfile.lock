@@ -29,6 +29,8 @@ GEM
     rb-scpt (1.0.2)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
+    thingamajig (0.1.0)
+      rb-scpt
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
@@ -43,4 +45,4 @@ DEPENDENCIES
   gitlab
   graphql-client
   pry
-  rb-scpt
+  thingamajig
