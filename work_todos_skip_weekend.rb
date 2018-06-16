@@ -6,29 +6,40 @@ Bundler.require(:default)
 require 'active_support'
 require 'active_support/all'
 
-next_monday = Date.parse("Monday").to_time
+require "./lib/thingamajig.rb"
 
-if next_monday < Time.now
-  next_monday += 1.week
+Things = Thingamajig
+
+def todos_to_move
+  Things::Area.find_by(name: "Work").projects.flat_map do |project|
+    project.todos(Things::Todo.predicate_active.and(Things::Todo.predicate_open))
+  end
 end
 
-friday_before = next_monday - 3.days
-friday_evening = friday_before + 18.hours
+def next_monday
+  result = Date.parse("Monday").to_time
+
+  if result < Time.now
+    result += 1.week
+  end
+
+  result
+end
+
+def friday_evening
+  friday_before = next_monday - 3.days
+  friday_before + 18.hours
+end
 
 if Time.now <= friday_evening
-  # puts "nothing to do"
+  # Nothing to do, it's not Friday evening yet
   exit
 
 else
-  puts "gotta do some stuff"
-  exit
+  puts "It's weekend! Reschedule work related Todos to Monday"
 
-  todos_to_check =
-    Things::Area.find_by(name: "Work").projects.flat_map do |project|
-      project.todos(Things::Todo.predicate_active.and(Things::Todo.predicate_open))
-    end
-
-  todos_to_check.each do |todo|
+  todos_to_move.each do |todo|
+    puts "Moving #{todo.inspect}"
     todo.activation_date = next_monday
   end
 end
