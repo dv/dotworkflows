@@ -9,6 +9,7 @@ gem "pry"
 gem "dotenv", require: "dotenv/load"
 gem "graphql-client"
 gem "activesupport"
+gem "nokogiri"
 
 gem "gitlab"
 gem "thingamajig"
